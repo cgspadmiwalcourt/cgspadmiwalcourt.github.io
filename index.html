@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGSP-Admi Ville de Walcourt</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #d71920;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    header h1 {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav {
+      background: #111;
+      text-align: center;
+      padding: 16px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+
+    nav a:hover {
+      color: #ff3333;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: white;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .boutons {
+      margin-top: 35px;
+    }
+
+    .bouton {
+      display: inline-block;
+      background: #d71920;
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      margin: 8px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .contenu {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .contenu h2 {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 30px;
+    }
+
+    .cartes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .carte {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      border-top: 5px solid #d71920;
+    }
+
+    .carte h3 {
+      margin-bottom: 15px;
+    }
+
+    .carte p {
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 40px;
+    }
+
+    footer strong {
+      color: #ff3333;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 29px;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CGSP-ADMI</h1>
+  <p>Ville de Walcourt</p>
+</header>
+
+<nav>
+  <a href="#accueil">Accueil</a>
+  <a href="#actualites">Actualités</a>
+  <a href="#ccb">CCB / CPPT</a>
+  <a href="#revendications">Revendications</a>
+  <a href="#tribune">Tribune CGSP</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="accueil">
+
+  <h2>Proches de vous, à vos côtés !</h2>
+
+  <p>
+    Bienvenue sur le site de la délégation syndicale
+    <strong>CGSP-Admi Ville de Walcourt</strong>.
+    Retrouvez ici nos informations syndicales, nos comptes rendus,
+    nos actions, nos revendications et le suivi des dossiers
+    concernant le personnel.
+  </p>
+
+  <div class="boutons">
+    <a class="bouton" href="#ccb">Voir les CCB / CPPT</a>
+
+    <a class="bouton"
+       href="https://irwcgsp.be/votre-tribune-de-mai-2026-est-en-ligne-copy/"
+       target="_blank">
+       Lire la Tribune CGSP
+    </a>
+  </div>
+
+</section>
+
+<section class="contenu" id="actualites">
+
+  <h2>Nos informations</h2>
+
+  <div class="cartes">
+
+    <div class="carte">
+      <h3>📢 Actualités</h3>
+      <p>
+        Retrouvez les dernières informations concernant
+        le personnel et l'actualité syndicale.
+      </p>
+    </div>
+
+    <div class="carte" id="ccb">
+      <h3>📋 CCB / CPPT</h3>
+      <p>
+        Consultez nos comptes rendus et suivez les dossiers
+        défendus lors des réunions de concertation.
+      </p>
+    </div>
+
+    <div class="carte" id="revendications">
+      <h3>✊ Revendications</h3>
+      <p>
+        Conditions de travail, pouvoir d'achat,
+        organisation des services et défense du personnel.
+      </p>
+    </div>
+
+    <div class="carte" id="tribune">
+      <h3>📕 Tribune CGSP</h3>
+      <p>
+        Retrouvez les publications et informations
+        de la CGSP.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contenu" id="contact">
+
+  <h2>Votre délégation</h2>
+
+  <div class="carte">
+    <h3>CGSP-Admi Ville de Walcourt</h3>
+
+    <p>
+      Une délégation présente sur le terrain pour
+      informer, écouter, représenter et défendre le personnel.
+    </p>
+  </div>
+
+</section>
+
+<footer>
+
+  <p>CGSP-Admi Ville de Walcourt</p>
+
+  <p>
+    <strong>Services publics — Ensemble, on est plus forts !</strong>
+  </p>
+
+</footer>
+
+</body>
+</html>
