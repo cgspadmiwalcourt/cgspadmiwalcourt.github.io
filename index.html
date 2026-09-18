@@ -259,7 +259,40 @@
       border-bottom-color: var(--rouge);
       box-shadow: 0 12px 32px rgba(0,0,0,0.12);
     }
+/* DERNIERES ACTUALITES */
+#dernieres-actualites {
+  background: #f1f1f1;
+}
 
+#dernieres-actualites .carte {
+  position: relative;
+  border-top: 5px solid var(--rouge);
+  border-bottom: none;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+}
+
+#dernieres-actualites .carte:hover {
+  transform: translateY(-6px);
+  border-bottom: none;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.16);
+}
+
+#dernieres-actualites .icone {
+  background: var(--rouge);
+  color: white;
+}
+
+.lien-carte {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--rouge);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.lien-carte:hover {
+  text-decoration: underline;
+}
     .icone {
       width: 55px;
       height: 55px;
@@ -549,23 +582,25 @@
 
     <div class="titre-section">
       <div class="petit-titre">À VOTRE SERVICE</div>
-      <h2>Informations syndicales</h2>
-      <p>
-        Retrouvez facilement les informations et dossiers suivis
-        par votre délégation CGSP-Admi Ville de Walcourt.
-      </p>
+     <h2>Actualités & informations syndicales</h2>
+     <p>
+  Retrouvez les dernières actualités, les comptes rendus CCB/CPPT,
+  les revendications et les informations utiles concernant le personnel
+  de la Ville de Walcourt.
+</p>
     </div>
 
     <div class="cartes">
 
-      <div class="carte">
-        <div class="icone">📢</div>
-        <h3>Actualités</h3>
-        <p>
-          Informations syndicales et actualités concernant
-          le personnel de la Ville de Walcourt.
-        </p>
-      </div>
+     <div class="carte">
+  <div class="icone">📢</div>
+  <h3>Dernières actualités</h3>
+  <p>
+    Retrouvez les dernières informations de votre délégation
+    CGSP-Admi Ville de Walcourt.
+  </p>
+  <a href="#dernieres-actualites" class="lien-carte">Voir les actualités →</a>
+</div>
 
       <div class="carte" id="ccb">
         <div class="icone">📋</div>
@@ -614,7 +649,45 @@
 
     </div>
   </section>
+<section class="section" id="dernieres-actualites">
+  <div class="titre-section">
+    <div class="petit-titre">RESTEZ INFORMÉS</div>
+    <h2>Dernières actualités</h2>
+    <p>
+      Retrouvez ici les dernières informations et communications
+      de votre délégation CGSP-Admi Ville de Walcourt.
+    </p>
+  </div>
 
+  <div class="cartes">
+    <div class="carte">
+      <div class="icone">📢</div>
+      <h3>Bienvenue sur notre site</h3>
+      <p>
+        Retrouvez désormais en ligne les actualités, revendications,
+        comptes rendus et informations de la CGSP-Admi Ville de Walcourt.
+      </p>
+    </div>
+
+    <div class="carte">
+      <div class="icone">📋</div>
+      <h3>Prochain CCB</h3>
+      <p>
+        La délégation CGSP-Admi prépare les dossiers et revendications
+        qui seront portés lors de la prochaine réunion.
+      </p>
+    </div>
+
+    <div class="carte">
+      <div class="icone">✊</div>
+      <h3>Mobilisations</h3>
+      <p>
+        Retrouvez les informations concernant les actions,
+        mobilisations et rendez-vous syndicaux.
+      </p>
+    </div>
+  </div>
+</section>
   <section class="bandeau">
     <div class="bandeau-contenu">
       <h2>Services publics</h2>
