@@ -3,145 +3,491 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>CGSP-Admi Ville de Walcourt</title>
+  <meta name="description" content="Site de la délégation syndicale CGSP-Admi Ville de Walcourt">
 
   <style>
+    :root {
+      --rouge: #d71920;
+      --rouge-fonce: #a80f15;
+      --noir: #111111;
+      --gris: #f4f4f4;
+      --gris-texte: #5d5d5d;
+      --blanc: #ffffff;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-    }
-
-    header {
-      background: #d71920;
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
-
-    header h1 {
-      font-size: 38px;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    nav {
-      background: #111;
-      text-align: center;
-      padding: 16px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 15px;
-    }
-
-    nav a:hover {
-      color: #ff3333;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 70px 20px;
-      background: white;
-    }
-
-    .hero h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 19px;
-      max-width: 800px;
-      margin: auto;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--gris);
+      color: var(--noir);
       line-height: 1.6;
     }
 
-    .boutons {
-      margin-top: 35px;
+    /* BARRE DU HAUT */
+
+    .topbar {
+      background: var(--rouge);
+      color: white;
+      padding: 8px 20px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
     }
 
-    .bouton {
-      display: inline-block;
-      background: #d71920;
+    /* NAVIGATION */
+
+    nav {
+      background: var(--noir);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .marque {
+      color: white;
+      font-size: 20px;
+      font-weight: 900;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .marque span {
+      color: #ef2b31;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    .menu a {
       color: white;
       text-decoration: none;
-      padding: 15px 25px;
-      margin: 8px;
-      border-radius: 6px;
+      font-size: 14px;
       font-weight: bold;
+      transition: 0.2s;
     }
 
-    .contenu {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px;
+    .menu a:hover {
+      color: #ef2b31;
     }
 
-    .contenu h2 {
+    /* HERO */
+
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      margin-bottom: 35px;
-      font-size: 30px;
+      color: white;
+      padding: 70px 20px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(215,25,32,0.35), transparent 45%),
+        linear-gradient(135deg, #080808 0%, #1a1a1a 55%, #750b0f 100%);
     }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 30px,
+          rgba(255,255,255,0.018) 30px,
+          rgba(255,255,255,0.018) 60px
+        );
+    }
+
+    .hero-contenu {
+      position: relative;
+      z-index: 2;
+      max-width: 950px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--rouge);
+      padding: 9px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #ef2b31;
+    }
+
+    .hero h2 {
+      font-size: clamp(24px, 4vw, 40px);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .hero .slogan {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .hero .description {
+      max-width: 760px;
+      margin: 0 auto 35px;
+      color: #e4e4e4;
+      font-size: 17px;
+    }
+
+    .hero-boutons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .btn-rouge {
+      background: var(--rouge);
+      color: white;
+    }
+
+    .btn-rouge:hover {
+      background: var(--rouge-fonce);
+      transform: translateY(-2px);
+    }
+
+    .btn-blanc {
+      background: white;
+      color: var(--noir);
+    }
+
+    .btn-blanc:hover {
+      background: #e8e8e8;
+      transform: translateY(-2px);
+    }
+
+    /* SECTIONS */
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 75px 20px;
+    }
+
+    .titre-section {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .titre-section .petit-titre {
+      color: var(--rouge);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+    }
+
+    .titre-section h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      margin-top: 5px;
+    }
+
+    .titre-section p {
+      max-width: 700px;
+      margin: 10px auto 0;
+      color: var(--gris-texte);
+    }
+
+    /* CARTES */
 
     .cartes {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
     .carte {
       background: white;
+      border-radius: 12px;
       padding: 30px;
-      border-radius: 8px;
-      border-top: 5px solid #d71920;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+      border-bottom: 4px solid transparent;
+      transition: 0.25s;
+    }
+
+    .carte:hover {
+      transform: translateY(-5px);
+      border-bottom-color: var(--rouge);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .icone {
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fdebec;
+      border-radius: 10px;
+      font-size: 27px;
+      margin-bottom: 20px;
     }
 
     .carte h3 {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      font-size: 21px;
     }
 
     .carte p {
-      line-height: 1.5;
+      color: var(--gris-texte);
+      font-size: 15px;
     }
 
-    footer {
-      background: #111;
+    /* BANDEAU */
+
+    .bandeau {
+      background: var(--rouge);
       color: white;
+    }
+
+    .bandeau-contenu {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 20px;
+      text-align: center;
+    }
+
+    .bandeau h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 10px;
+    }
+
+    .bandeau p {
+      font-size: 18px;
+    }
+
+    /* CCB CPPT */
+
+    .bloc-info {
+      background: white;
+      border-radius: 14px;
+      padding: 35px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+      border-left: 6px solid var(--rouge);
+    }
+
+    .bloc-info h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .bloc-info p {
+      color: var(--gris-texte);
+      margin-bottom: 20px;
+    }
+
+    /* TRIBUNE */
+
+    .tribune {
+      background: #171717;
+      color: white;
+    }
+
+    .tribune-contenu {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .tribune-texte {
+      max-width: 700px;
+    }
+
+    .tribune-texte .petit-titre {
+      color: #ef2b31;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .tribune h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      margin: 8px 0 15px;
+    }
+
+    .tribune p {
+      color: #d1d1d1;
+      margin-bottom: 25px;
+    }
+
+    /* DELEGATION */
+
+    .delegues {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .delegue {
+      background: white;
       text-align: center;
       padding: 35px 20px;
-      margin-top: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 18px;
+      background: var(--rouge);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      font-weight: 900;
+    }
+
+    .delegue h3 {
+      font-size: 20px;
+    }
+
+    .delegue p {
+      color: var(--gris-texte);
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .contact p {
+      color: var(--gris-texte);
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #090909;
+      color: #bdbdbd;
+      text-align: center;
+      padding: 35px 20px;
     }
 
     footer strong {
-      color: #ff3333;
+      color: white;
     }
 
-    @media (max-width: 700px) {
-      header h1 {
-        font-size: 29px;
+    footer .rouge {
+      color: #ef2b31;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .nav-container {
+        flex-direction: column;
       }
 
-      nav a {
-        display: block;
-        margin: 10px;
+      .menu {
+        justify-content: center;
       }
 
-      .hero h2 {
-        font-size: 28px;
+      .cartes {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .delegues {
+        grid-template-columns: 1fr;
+      }
+
+      .tribune-contenu {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .menu {
+        gap: 11px;
+      }
+
+      .menu a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+
+      .cartes {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 55px 16px;
       }
     }
   </style>
@@ -149,110 +495,257 @@
 
 <body>
 
-<header>
-  <h1>CGSP-ADMI</h1>
-  <p>Ville de Walcourt</p>
-</header>
-
-<nav>
-  <a href="#accueil">Accueil</a>
-  <a href="#actualites">Actualités</a>
-  <a href="#ccb">CCB / CPPT</a>
-  <a href="#revendications">Revendications</a>
-  <a href="#tribune">Tribune CGSP</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section class="hero" id="accueil">
-
-  <h2>Proches de vous, à vos côtés !</h2>
-
-  <p>
-    Bienvenue sur le site de la délégation syndicale
-    <strong>CGSP-Admi Ville de Walcourt</strong>.
-    Retrouvez ici nos informations syndicales, nos comptes rendus,
-    nos actions, nos revendications et le suivi des dossiers
-    concernant le personnel.
-  </p>
-
-  <div class="boutons">
-    <a class="bouton" href="#ccb">Voir les CCB / CPPT</a>
-
-    <a class="bouton"
-       href="https://irwcgsp.be/votre-tribune-de-mai-2026-est-en-ligne-copy/"
-       target="_blank">
-       Lire la Tribune CGSP
-    </a>
+  <div class="topbar">
+    CGSP-ADMI • VILLE DE WALCOURT
   </div>
 
-</section>
+  <nav>
+    <div class="nav-container">
+      <a class="marque" href="#accueil">
+        <span>CGSP</span>-ADMI WALCOURT
+      </a>
 
-<section class="contenu" id="actualites">
+      <div class="menu">
+        <a href="#accueil">Accueil</a>
+        <a href="#actualites">Actualités</a>
+        <a href="#ccb">CCB / CPPT</a>
+        <a href="#revendications">Revendications</a>
+        <a href="#tribune">Tribune</a>
+        <a href="#delegation">Délégation</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-  <h2>Nos informations</h2>
+  <section class="hero" id="accueil">
+    <div class="hero-contenu">
 
-  <div class="cartes">
+      <div class="badge">
+        DÉLÉGATION SYNDICALE
+      </div>
 
-    <div class="carte">
-      <h3>📢 Actualités</h3>
+      <h1><span>CGSP</span>-ADMI</h1>
+
+      <h2>Ville de Walcourt</h2>
+
+      <div class="slogan">
+        Proches de vous, à vos côtés !
+      </div>
+
+      <p class="description">
+        Information, écoute, représentation et défense du personnel.
+        Retrouvez nos actualités, comptes rendus, revendications
+        et le suivi des dossiers concernant les agents.
+      </p>
+
+      <div class="hero-boutons">
+        <a href="#actualites" class="btn btn-rouge">
+          Voir nos actualités
+        </a>
+
+        <a href="#ccb" class="btn btn-blanc">
+          CCB / CPPT
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="actualites">
+
+    <div class="titre-section">
+      <div class="petit-titre">À VOTRE SERVICE</div>
+      <h2>Informations syndicales</h2>
       <p>
-        Retrouvez les dernières informations concernant
-        le personnel et l'actualité syndicale.
+        Retrouvez facilement les informations et dossiers suivis
+        par votre délégation CGSP-Admi Ville de Walcourt.
       </p>
     </div>
 
-    <div class="carte" id="ccb">
-      <h3>📋 CCB / CPPT</h3>
+    <div class="cartes">
+
+      <div class="carte">
+        <div class="icone">📢</div>
+        <h3>Actualités</h3>
+        <p>
+          Informations syndicales et actualités concernant
+          le personnel de la Ville de Walcourt.
+        </p>
+      </div>
+
+      <div class="carte" id="ccb">
+        <div class="icone">📋</div>
+        <h3>CCB / CPPT</h3>
+        <p>
+          Comptes rendus, dossiers présentés et suivi des points
+          abordés lors des réunions de concertation.
+        </p>
+      </div>
+
+      <div class="carte" id="revendications">
+        <div class="icone">✊</div>
+        <h3>Revendications</h3>
+        <p>
+          Conditions de travail, organisation des services,
+          pouvoir d'achat et défense du personnel.
+        </p>
+      </div>
+
+      <div class="carte">
+        <div class="icone">📄</div>
+        <h3>Documents</h3>
+        <p>
+          Retrouvez progressivement nos documents,
+          communications et informations utiles.
+        </p>
+      </div>
+
+      <div class="carte">
+        <div class="icone">✅</div>
+        <h3>Suivi des dossiers</h3>
+        <p>
+          Suivez les demandes introduites, les avancées obtenues
+          et les dossiers toujours en cours.
+        </p>
+      </div>
+
+      <div class="carte">
+        <div class="icone">🤝</div>
+        <h3>À vos côtés</h3>
+        <p>
+          Une question ou un problème au travail ?
+          Votre délégation est présente pour vous écouter et vous représenter.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bandeau">
+    <div class="bandeau-contenu">
+      <h2>Services publics</h2>
       <p>
-        Consultez nos comptes rendus et suivez les dossiers
-        défendus lors des réunions de concertation.
+        <strong>Ensemble, on est plus forts !</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+
+    <div class="titre-section">
+      <div class="petit-titre">CONCERTATION</div>
+      <h2>CCB & CPPT</h2>
+      <p>
+        Informer le personnel sur les points défendus
+        et assurer un suivi clair des dossiers.
       </p>
     </div>
 
-    <div class="carte" id="revendications">
-      <h3>✊ Revendications</h3>
+    <div class="bloc-info">
+      <h3>📋 Comptes rendus des réunions</h3>
       <p>
-        Conditions de travail, pouvoir d'achat,
-        organisation des services et défense du personnel.
+        Cette rubrique accueillera les comptes rendus des CCB et CPPT,
+        avec une distinction claire entre les demandes refusées,
+        les dossiers en cours et les avancées obtenues.
+      </p>
+
+      <a href="#contact" class="btn btn-rouge">
+        Consulter les informations
+      </a>
+    </div>
+
+  </section>
+
+  <section class="tribune" id="tribune">
+
+    <div class="tribune-contenu">
+
+      <div class="tribune-texte">
+        <div class="petit-titre">PUBLICATION CGSP</div>
+
+        <h2>La Tribune CGSP</h2>
+
+        <p>
+          Retrouvez la Tribune CGSP et les dernières informations
+          publiées par la CGSP.
+        </p>
+
+        <a
+          href="https://irwcgsp.be/votre-tribune-de-mai-2026-est-en-ligne-copy/"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-rouge">
+          Lire la Tribune
+        </a>
+      </div>
+
+      <div style="font-size:100px;">📕</div>
+
+    </div>
+
+  </section>
+
+  <section class="section" id="delegation">
+
+    <div class="titre-section">
+      <div class="petit-titre">VOS REPRÉSENTANTS</div>
+      <h2>Votre délégation</h2>
+      <p>
+        Une équipe présente sur le terrain pour informer,
+        écouter, représenter et défendre le personnel.
       </p>
     </div>
 
-    <div class="carte" id="tribune">
-      <h3>📕 Tribune CGSP</h3>
-      <p>
-        Retrouvez les publications et informations
-        de la CGSP.
-      </p>
+    <div class="delegues">
+
+      <div class="delegue">
+        <div class="avatar">VL</div>
+        <h3>Vincent Lannoy</h3>
+        <p>Délégué CGSP-Admi</p>
+      </div>
+
+      <div class="delegue">
+        <div class="avatar">PG</div>
+        <h3>Patrick Ganty</h3>
+        <p>Délégué CGSP-Admi</p>
+      </div>
+
+      <div class="delegue">
+        <div class="avatar">GD</div>
+        <h3>Grégory Devergnies</h3>
+        <p>Délégué CGSP-Admi</p>
+      </div>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <section class="contact" id="contact">
 
-<section class="contenu" id="contact">
-
-  <h2>Votre délégation</h2>
-
-  <div class="carte">
-    <h3>CGSP-Admi Ville de Walcourt</h3>
+    <h2>Besoin d'une information ?</h2>
 
     <p>
-      Une délégation présente sur le terrain pour
-      informer, écouter, représenter et défendre le personnel.
+      N'hésitez pas à prendre contact avec votre délégation
+      CGSP-Admi Ville de Walcourt. Nous sommes à votre écoute.
     </p>
-  </div>
 
-</section>
+  </section>
 
-<footer>
+  <footer>
 
-  <p>CGSP-Admi Ville de Walcourt</p>
+    <p>
+      <strong>CGSP-Admi Ville de Walcourt</strong>
+    </p>
 
-  <p>
-    <strong>Services publics — Ensemble, on est plus forts !</strong>
-  </p>
+    <p>
+      Proches de vous, à vos côtés !
+    </p>
 
-</footer>
+    <p class="rouge">
+      <strong>Services publics — Ensemble, on est plus forts !</strong>
+    </p>
+
+  </footer>
 
 </body>
 </html>
