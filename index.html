@@ -688,11 +688,12 @@
     </div>
   </div>
 </section>
-  <!-- AGENDA SYNDICAL -->
+ <!-- AGENDA SYNDICAL -->
 <section class="section" id="agenda">
+
   <div class="titre-section">
     <div class="petit-titre">DATES À RETENIR</div>
-    <h2>📅 Agenda syndical</h2>
+    <h2>🗓️ Agenda syndical</h2>
     <p>
       Retrouvez les prochaines réunions, actions, mobilisations
       et rendez-vous de la CGSP-Admi Ville de Walcourt.
@@ -700,32 +701,155 @@
   </div>
 
   <div class="bloc-info">
-    <h3>Octobre 2026</h3>
 
-    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center;margin-top:25px;">
-      <strong>Lun</strong><strong>Mar</strong><strong>Mer</strong><strong>Jeu</strong><strong>Ven</strong><strong>Sam</strong><strong>Dim</strong>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px;">
+      <button onclick="changerMois(-1)"
+        style="background:#111;color:white;border:0;padding:12px 18px;border-radius:8px;font-weight:800;cursor:pointer;">
+        ◀ Précédent
+      </button>
 
-      <span></span><span></span><span></span>
-      <span>1</span><span>2</span><span>3</span><span>4</span>
+      <h3 id="titre-mois" style="margin:0;text-align:center;"></h3>
 
-      <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
-
-      <span style="background:#198754;color:white;padding:12px 4px;border-radius:8px;font-weight:900;">
-        12<br>📋 CCB / CPPT
-      </span>
-      <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
-
-      <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
-
-      <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span></span>
+      <button onclick="changerMois(1)"
+        style="background:#111;color:white;border:0;padding:12px 18px;border-radius:8px;font-weight:800;cursor:pointer;">
+        Suivant ▶
+      </button>
     </div>
 
-    <p style="margin-top:25px;">
-      🟢 <strong>12 octobre 2026 — CCB / CPPT</strong><br>
-      Les informations et documents seront ajoutés dès qu'ils seront disponibles.
-    </p>
+    <div id="calendrier"
+      style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center;">
+    </div>
+
+    <div style="margin-top:25px;padding-top:20px;border-top:1px solid #ddd;">
+      <strong>Légende :</strong>
+      <span style="margin-left:15px;">🟢 CCB / CPPT</span>
+      <span style="margin-left:15px;">🔴 Grève / mobilisation</span>
+      <span style="margin-left:15px;">🟠 Réunion / rendez-vous</span>
+      <span style="margin-left:15px;">🔵 Formation / événement</span>
+    </div>
+
+    <div id="details-agenda" style="margin-top:20px;"></div>
+
   </div>
 </section>
+
+<script>
+const nomsMois = [
+  "Janvier", "Février", "Mars", "Avril",
+  "Mai", "Juin", "Juillet", "Août",
+  "Septembre", "Octobre", "Novembre", "Décembre"
+];
+
+const joursSemaine = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+
+let moisActuel = 8;
+let anneeActuelle = 2026;
+
+/* ÉVÉNEMENTS DE L'AGENDA */
+const evenements = {
+  "2026-10-12": {
+    titre: "CCB / CPPT",
+    type: "ccb",
+    couleur: "#198754",
+    icone: "📋"
+  }
+};
+
+function afficherCalendrier() {
+
+  const calendrier = document.getElementById("calendrier");
+  const titre = document.getElementById("titre-mois");
+  const details = document.getElementById("details-agenda");
+
+  calendrier.innerHTML = "";
+  details.innerHTML = "";
+
+  titre.textContent = nomsMois[moisActuel] + " " + anneeActuelle;
+
+  joursSemaine.forEach(jour => {
+    const cellule = document.createElement("strong");
+    cellule.textContent = jour;
+    cellule.style.padding = "8px";
+    calendrier.appendChild(cellule);
+  });
+
+  let premierJour = new Date(anneeActuelle, moisActuel, 1).getDay();
+  premierJour = premierJour === 0 ? 6 : premierJour - 1;
+
+  const nombreJours = new Date(
+    anneeActuelle,
+    moisActuel + 1,
+    0
+  ).getDate();
+
+  for (let i = 0; i < premierJour; i++) {
+    calendrier.appendChild(document.createElement("span"));
+  }
+
+  for (let jour = 1; jour <= nombreJours; jour++) {
+
+    const cellule = document.createElement("div");
+
+    cellule.style.padding = "12px 4px";
+    cellule.style.borderRadius = "8px";
+    cellule.style.minHeight = "45px";
+
+    const cle =
+      anneeActuelle + "-" +
+      String(moisActuel + 1).padStart(2, "0") + "-" +
+      String(jour).padStart(2, "0");
+
+    const evenement = evenements[cle];
+
+    if (evenement) {
+      cellule.style.background = evenement.couleur;
+      cellule.style.color = "white";
+      cellule.style.fontWeight = "900";
+
+      cellule.innerHTML =
+        jour + "<br>" +
+        evenement.icone + " " +
+        evenement.titre;
+
+      const info = document.createElement("div");
+      info.style.marginTop = "8px";
+      info.innerHTML =
+        '<strong style="color:' + evenement.couleur + ';">● ' +
+        jour + " " +
+        nomsMois[moisActuel].toLowerCase() + " " +
+        anneeActuelle + " — " +
+        evenement.titre +
+        "</strong>";
+
+      details.appendChild(info);
+
+    } else {
+      cellule.textContent = jour;
+    }
+
+    calendrier.appendChild(cellule);
+  }
+}
+
+function changerMois(direction) {
+
+  moisActuel += direction;
+
+  if (moisActuel < 0) {
+    moisActuel = 11;
+    anneeActuelle--;
+  }
+
+  if (moisActuel > 11) {
+    moisActuel = 0;
+    anneeActuelle++;
+  }
+
+  afficherCalendrier();
+}
+
+afficherCalendrier();
+</script>
   <section class="bandeau">
     <div class="bandeau-contenu">
       <h2>Services publics</h2>
