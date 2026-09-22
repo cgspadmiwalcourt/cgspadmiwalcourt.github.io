@@ -619,6 +619,24 @@
   font-size: 14px;
 }
 
+.news-link {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 18px;
+  background: var(--rouge);
+  color: var(--blanc);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 7px;
+  transition: 0.2s ease;
+}
+
+.news-link:hover {
+  background: var(--rouge-fonce);
+  transform: translateY(-2px);
+}
+
 .news-arrow {
   position: absolute;
   top: 57%;
@@ -801,6 +819,9 @@
         <div class="news-source">
           CGSP-Admi • Ville de Walcourt
         </div>
+        <a href="#ccb" class="news-link">
+  📋 Voir le CCB / CPPT
+</a>
       </div>
 
 
@@ -1385,9 +1406,19 @@ afficherCalendrier();
 
     defilementAutomatique = setInterval(function() {
       actualiteSuivante();
-    }, 6000);
+    }, 10000);
   }
+const carrousel = document.querySelector(".news-slider-container");
 
+if (carrousel) {
+  carrousel.addEventListener("mouseenter", function() {
+    clearInterval(defilementAutomatique);
+  });
+
+  carrousel.addEventListener("mouseleave", function() {
+    lancerDefilement();
+  });
+}
 
   if (boutonSuivant) {
     boutonSuivant.addEventListener("click", function() {
