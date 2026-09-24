@@ -721,6 +721,63 @@
     font-size: 19px;
   }
 }
+    /* ===== BANNIÈRE GRÈVE 12 OCTOBRE 2026 ===== */
+
+.greve-hero {
+  position: relative;
+  width: 100%;
+  background: #ffd400;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.greve-hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.greve-hero-btn {
+  position: absolute;
+  right: 7%;
+  bottom: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 24px;
+  background: #e30613;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.2;
+  border: 2px solid #ffffff;
+  border-radius: 9px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: 0.2s ease;
+}
+
+.greve-hero-btn:hover {
+  background: #b9000b;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .greve-hero-image {
+    min-height: 240px;
+    object-fit: cover;
+  }
+
+  .greve-hero-btn {
+    right: 15px;
+    bottom: 15px;
+    padding: 11px 15px;
+    font-size: 12px;
+  }
+}
   </style>
 </head>
 
@@ -748,39 +805,17 @@
     </div>
   </nav>
 
-  <section class="hero" id="accueil">
-    <div class="hero-contenu">
+ <section class="greve-hero" id="accueil">
+  <img
+    src="banniere_greve_12_octobre_2026.jpg"
+    alt="Grève des services publics du 12 octobre 2026"
+    class="greve-hero-image"
+  >
 
-      <div class="badge">
-        DÉLÉGATION SYNDICALE
-      </div>
-
-      <h1><span>CGSP</span>-ADMI</h1>
-
-      <h2>Ville de Walcourt</h2>
-
-      <div class="slogan">
-        Proches de vous, à vos côtés !
-      </div>
-
-      <p class="description">
-        Information, écoute, représentation et défense du personnel.
-        Retrouvez nos actualités, comptes rendus, revendications
-        et le suivi des dossiers concernant les agents.
-      </p>
-
-      <div class="hero-boutons">
-        <a href="#actualites" class="btn btn-rouge">
-          Voir nos actualités
-        </a>
-
-        <a href="#ccb" class="btn btn-blanc">
-          CCB / CPPT
-        </a>
-      </div>
-
-    </div>
-  </section>
+  <a href="#greve-12-octobre" class="greve-hero-btn">
+    📄 VOIR LE TRACT COMPLET (PDF) →
+  </a>
+</section>
   <!-- ==================================================
      DERNIÈRES NOUVELLES - CGSP-ADMI WALCOURT
      ================================================== -->
