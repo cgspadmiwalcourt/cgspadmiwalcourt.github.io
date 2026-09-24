@@ -1461,17 +1461,15 @@ if (carrousel) {
 
 })();
 </script>
- <script>
-  var t = setInterval(function() {
-    if (window.goatcounter && window.goatcounter.visit_count) {
-      clearInterval(t);
-      window.goatcounter.visit_count({
-        append: '#gc-counter',
-        path: 'TOTAL',
-        no_branding: true
-      });
-    }
-  }, 100);
+<script>
+fetch('https://cgspadmiwalcourt.goatcounter.com/counter/TOTAL.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('gc-counter').textContent = data.count;
+  })
+  .catch(() => {
+    document.getElementById('gc-counter').textContent = '—';
+  });
 </script>
   <script data-goatcounter="https://cgspadmiwalcourt.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
