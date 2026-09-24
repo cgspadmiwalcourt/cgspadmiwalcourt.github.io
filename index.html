@@ -1344,6 +1344,10 @@ afficherCalendrier();
   <div>
     © 2026 CGSP-Admi Ville de Walcourt — Tous droits réservés<br>
     Délégation syndicale CGSP-Admi
+    <div style="margin-top:8px; font-weight:bold;">
+  👥 VISITES DU SITE :
+  <span id="gc-counter">...</span>
+</div>
   </div>
 
   <div style="text-align:right;">
@@ -1456,6 +1460,18 @@ if (carrousel) {
   }
 
 })();
+</script>
+ <script>
+  var t = setInterval(function() {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      clearInterval(t);
+      window.goatcounter.visit_count({
+        append: '#gc-counter',
+        path: 'TOTAL',
+        no_branding: true
+      });
+    }
+  }, 100);
 </script>
   <script data-goatcounter="https://cgspadmiwalcourt.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
