@@ -778,6 +778,126 @@
     font-size: 12px;
   }
 }
+    /* ===== DOSSIER SPECIAL - GREVE DU 12 OCTOBRE 2026 ===== */
+
+.greve-dossier {
+  background: #f4f4f4;
+  padding: 65px 20px;
+}
+
+.greve-dossier-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  border-top: 6px solid #e30613;
+}
+
+.greve-dossier-header {
+  background: #111111;
+  color: #ffffff;
+  padding: 35px 40px;
+  text-align: center;
+}
+
+.greve-dossier-label {
+  color: #ffcc00;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.greve-dossier-header h2 {
+  font-size: 34px;
+  margin: 5px 0 10px;
+}
+
+.greve-dossier-date {
+  display: inline-block;
+  background: #e30613;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.greve-dossier-slogan {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ffcc00;
+}
+
+.greve-revendications {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  padding: 35px 40px;
+}
+
+.greve-revendication {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 22px;
+  background: #f7f7f7;
+  border-left: 5px solid #e30613;
+  border-radius: 8px;
+}
+
+.greve-revendication > span {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.greve-revendication h3 {
+  margin: 0 0 8px;
+  color: #111111;
+  font-size: 18px;
+}
+
+.greve-revendication p {
+  margin: 0;
+  line-height: 1.6;
+  color: #444444;
+}
+
+.greve-dossier-pdf {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 35px;
+  padding: 14px 24px;
+  background: #e30613;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.greve-dossier-pdf:hover {
+  background: #b9000b;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .greve-revendications {
+    grid-template-columns: 1fr;
+    padding: 25px 20px;
+  }
+
+  .greve-dossier-header {
+    padding: 30px 20px;
+  }
+
+  .greve-dossier-header h2 {
+    font-size: 27px;
+  }
+}
   </style>
 </head>
 
@@ -812,7 +932,7 @@
     class="greve-hero-image"
   >
 
-  <a href="#greve-12-octobre" class="greve-hero-btn">
+ <a href="GREVE%2012%20OCTOBRE%202026.pdf" target="_blank" class="greve-hero-btn">
     📄 VOIR LE TRACT COMPLET (PDF) →
   </a>
 </section>
@@ -968,7 +1088,80 @@
   </div>
 
 </section>
+<!-- ==================================================
+     DOSSIER SPECIAL - GREVE DU 12 OCTOBRE 2026
+================================================== -->
 
+<section class="greve-dossier" id="greve-12-octobre">
+
+  <div class="greve-dossier-container">
+
+    <div class="greve-dossier-header">
+      <div class="greve-dossier-label">✊ MOBILISATION</div>
+
+      <h2>Grève des services publics</h2>
+
+      <div class="greve-dossier-date">
+        12 OCTOBRE 2026
+      </div>
+
+      <p class="greve-dossier-slogan">
+        Ils s’acharnent. <strong>Nous continuons.</strong>
+      </p>
+    </div>
+
+    <div class="greve-revendications">
+
+      <div class="greve-revendication">
+        <span>🏛️</span>
+        <div>
+          <h3>Budgets des services publics</h3>
+          <p>Pas de coupes supplémentaires.</p>
+        </div>
+      </div>
+
+      <div class="greve-revendication">
+        <span>💶</span>
+        <div>
+          <h3>Pouvoir d’achat</h3>
+          <p>
+            Maintien de l’indexation automatique sans restriction
+            et pas de hausse de la TVA.
+          </p>
+        </div>
+      </div>
+
+      <div class="greve-revendication">
+        <span>✊</span>
+        <div>
+          <h3>Droit de grève</h3>
+          <p>Pas de réquisition ni de service minimum.</p>
+        </div>
+      </div>
+
+      <div class="greve-revendication">
+        <span>📋</span>
+        <div>
+          <h3>Statut</h3>
+          <p>
+            Maintien des nominations à tous niveaux de pouvoir,
+            seul garant de l’indépendance des agents et de la
+            continuité des services publics.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="GREVE%2012%20OCTOBRE%202026.pdf"
+       target="_blank"
+       class="greve-dossier-pdf">
+      📄 CONSULTER LE TRACT OFFICIEL (PDF)
+    </a>
+
+  </div>
+
+</section>
   <section class="section" id="actualites">
 
     <div class="titre-section">
