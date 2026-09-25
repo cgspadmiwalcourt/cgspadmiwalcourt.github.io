@@ -1238,7 +1238,7 @@
     Retrouvez les prochaines actions, manifestations
     et mobilisations syndicales de la CGSP-Admi.
   </p>
-  <a href="#agenda" class="lien-carte">Voir les mobilisations →</a>
+ <a href="#agenda" class="lien-carte" onclick="ouvrirProchaineMobilisation()">Voir les mobilisations →</a>
 </div>
 
       <div class="carte">
@@ -1467,6 +1467,29 @@ function changerMois(direction) {
   }
 
   afficherCalendrier();
+}
+  function ouvrirProchaineMobilisation() {
+    const aujourdHui = new Date();
+    aujourdHui.setHours(0, 0, 0, 0);
+
+    const prochainesMobilisations = Object.keys(evenements)
+        .filter(date => {
+            const evenement = evenements[date];
+            const dateEvenement = new Date(date + "T00:00:00");
+
+            return evenement.type === "greve" &&
+                   dateEvenement >= aujourdHui;
+        })
+        .sort();
+
+    if (prochainesMobilisations.length > 0) {
+        const prochaineDate = prochainesMobilisations[0].split("-");
+
+        anneeActuelle = parseInt(prochaineDate[0]);
+        moisActuel = parseInt(prochaineDate[1]) - 1;
+
+        afficherCalendrier();
+    }
 }
 
 afficherCalendrier();
