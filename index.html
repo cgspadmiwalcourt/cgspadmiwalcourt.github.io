@@ -453,7 +453,80 @@
       max-width: 700px;
       margin: auto;
     }
+/* ===== FORMULAIRE DE CONTACT ===== */
 
+.contact-form {
+  max-width: 700px;
+  margin: 35px auto 0;
+  padding: 30px;
+  background: #f7f7f7;
+  border-left: 5px solid #e30613;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.contact-form label {
+  display: block;
+  margin: 18px 0 7px;
+  font-weight: 700;
+  color: #222;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 7px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.contact-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #e30613;
+}
+
+.contact-form button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 7px;
+  background: #e30613;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #b9000b;
+}
+
+.contact-securite {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #666666;
+}
+
+@media (max-width: 700px) {
+  .contact-form {
+    padding: 20px;
+  }
+}
     /* FOOTER */
 
     footer {
@@ -1989,14 +2062,68 @@ afficherCalendrier();
 
   <section class="contact" id="contact">
 
-    <h2>Besoin d'une information ?</h2>
+  <h2>📨 Contacter votre délégation</h2>
 
-    <p>
-      N'hésitez pas à prendre contact avec votre délégation
-      CGSP-Admi Ville de Walcourt. Nous sommes à votre écoute.
-    </p>
+  <p>
+    Une question, un problème au travail ou besoin d'un renseignement ?
+    Envoyez-nous votre message. Votre délégation CGSP-Admi Ville de Walcourt
+    est à votre écoute.
+  </p>
 
-  </section>
+  <form
+    class="contact-form"
+    action="https://formspree.io/f/mqpavekg"
+    method="POST"
+  >
+
+    <label for="nom">Nom et prénom *</label>
+    <input
+      type="text"
+      id="nom"
+      name="Nom et prénom"
+      required
+      autocomplete="name"
+    >
+
+    <label for="email">Votre adresse e-mail *</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      autocomplete="email"
+    >
+
+    <label for="objet">Objet *</label>
+    <select id="objet" name="Objet" required>
+      <option value="">Choisissez un sujet</option>
+      <option value="Question syndicale">Question syndicale</option>
+      <option value="Problème au travail">Problème au travail</option>
+      <option value="CCB / CPPT">CCB / CPPT</option>
+      <option value="Sécurité / bien-être">Sécurité / bien-être</option>
+      <option value="Information">Demande d'information</option>
+      <option value="Autre">Autre</option>
+    </select>
+
+    <label for="message">Votre message *</label>
+    <textarea
+      id="message"
+      name="message"
+      required
+      placeholder="Écrivez votre message ici..."
+    ></textarea>
+
+    <button type="submit">
+      ✉️ ENVOYER MON MESSAGE
+    </button>
+
+    <div class="contact-securite">
+      🛡️ Formulaire protégé contre les envois automatisés et le spam.
+    </div>
+
+  </form>
+
+</section>
 
   <footer>
 
