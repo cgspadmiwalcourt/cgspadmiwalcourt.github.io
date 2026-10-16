@@ -1588,36 +1588,32 @@ function changerMois(direction) {
   afficherCalendrier();
 }
   function ouvrirProchaineMobilisation() {
-    const aujourdHui = new Date();
-    aujourdHui.setHours(0, 0, 0, 0);
+  const aujourdHui = new Date();
+  aujourdHui.setHours(0, 0, 0, 0);
 
-    const prochainesMobilisations = Object.keys(evenements)
-        .filter(date => {
-            const evenement = evenements[date];
-            const dateEvenement = new Date(date + "T00:00:00");
+  const mobilisations = Object.keys(evenements)
+    .filter(date => evenements[date].type === "greve")
+    .sort();
 
-            return evenement.type === "greve" &&
-                   dateEvenement >= aujourdHui;
-        })
-        .sort();
+  const prochaine = mobilisations.find(date =>
+    new Date(date + "T00:00:00") >= aujourdHui
+  );
 
-    if (prochainesMobilisations.length > 0) {
-        const prochaineDate = prochainesMobilisations[0].split("-");
+  // Prochaine mobilisation ou dernière mobilisation passée
+  const dateChoisie = prochaine || mobilisations[mobilisations.length - 1];
 
-        anneeActuelle = parseInt(prochaineDate[0]);
-        moisActuel = parseInt(prochaineDate[1]) - 1;
+  if (dateChoisie) {
+    const [annee, mois] = dateChoisie.split("-").map(Number);
 
-        afficherCalendrier();
-    }
+    anneeActuelle = annee;
+    moisActuel = mois - 1;
+
+    afficherCalendrier();
+  }
 }
 
 afficherCalendrier();
 </script>
-  <section class="bandeau">
-    <div class="bandeau-contenu">
-      <h2>Services publics</h2>
-      <p>
-        <strong>Ensemble, on est plus forts !</strong>
       </p>
     </div>
   </section>
