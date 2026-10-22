@@ -1462,8 +1462,9 @@ const nomsMois = [
 
 const joursSemaine = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
 
-let moisActuel = 8;
-let anneeActuelle = 2026;
+const dateDuJour = new Date();
+let moisActuel = dateDuJour.getMonth();
+let anneeActuelle = dateDuJour.getFullYear();
 
 /* ÉVÉNEMENTS DE L'AGENDA */
 const evenements = {
